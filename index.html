@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<!--WebPageTitle-->
+<head>
+<title>YB-WebClickerGame</title>
+</head>
+
+<!--BackgroundColor-->
+<style>
+body{
+background-color:black;
+}
+</style>
+
+<!--Überschrift-->
+<h1 class="Title" style=text-align:center;color:white >YB-WebClickerGame</h1>
+<style>
+.Title{
+margin-top:20px;
+text-color:white;
+text-shadow: 0 0 4px #16F61D, 0 0 10px #0000FF;
+
+}
+
+h1 {
+  font-size: 50px;
+}
+
+</style>
+<!--------------------------------------------------------------------------------------------->
+<!--Game-->
+
+<style>
+body {
+background-color: black;
+color: white ;}
+</style>
+</head>
+<body>
+<p style=text-align:center  id="cashT">Cash: 0</p>
+<p style=text-align:center  id="costT">Upgrade Cost: 5</p>
+
+<!-- Click Me Button -->
+<p id="dd"></p>
+<button type="button"
+style="height:background-color:lightgreen;margin-left:auto;margin-right:auto;display:block;color:lightgreen;background:dimgrey;width:200px;height:40px;margin-top:0%;margin-bottom=:100%" 
+onclick="clicc()">Click me</button>
+
+<!-- Upgrade Button -->
+<p id="upgr"></p>
+<button type="button"
+style="height:background-color:lightgreen;margin-left:auto;margin-right:auto;display:block;color:lightgreen;background:dimgrey;width:200px;height:40px;margin-top:0%;margin-bottom=:100%" 
+onclick="upgra()">Upgrade</button>
+
+<!-- Save Button -->
+<button type="button"
+style="height:background-color:lightgreen;margin-left:auto;margin-right:auto;display:block;color:lightgreen;background:dimgrey;width:200px;height:40px;margin-top:2%;margin-bottom=:100%" 
+onclick="save()">Save</button>
+
+<!-- Shop -->
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+
+ <button style="height:background-color:lightgreen;margin-left:auto;margin-right:auto;display:block;color:lightgreen;background:dimgrey;width:200px;height:40px;margin-top:2%;margin-bottom=:10%" 
+onclick="openPopup()">Shop</button> 
+
+ <div id="idPopup" style="background:black;position:fixed;margin-left:10%;z-index:1;display:none">
+ AutoCash Shop 
+  <button onclick="closePopup();">Close Shop</button>
+  <li>
+  				<ul>
+  							<button>AutoCash 1</button>
+  				</ul> 				
+  </li>
+ </div>
+
+<script>
+var ch = 0
+var pCh = 1
+var ugC = 5
+
+function clicc(){
+ch = ch + pCh
+document.getElementById("cashT").innerHTML ="Cash: " + ch.toFixed(2)} 
+
+function upgra(){
+if (ch > ugC-0.01) {
+ch = ch-ugC
+pCh = pCh*1.32
+ugC = ugC*1.38
+document.getElementById("costT").innerHTML = "Upgrade Cost: " + ugC.toFixed(2)
+document.getElementById("cashT").innerHTML ="Cash: " + ch.toFixed(2)
+}else {
+alert("You dont have enough money!")}
+}
+</script>
+
+ <div id="blackOverlay" style="background:black;position:fixed;width:100%;height:100%;top:0px;left:0px;opacity:0.7;display:none;"></div>
+
+ <script>
+  function openPopup()
+  {
+   var div1 = document.getElementById("idPopup");
+   var div2 = document.getElementById("blackOverlay");
+
+   div1.style.display = "block";
+   div2.style.display = "block";
+  }
+
+  function closePopup()
+  {
+   var div1 = document.getElementById("idPopup");
+   var div2 = document.getElementById("blackOverlay");
+
+   div1.style.display = "none";
+   div2.style.display = "none";
+  }
+  
+function save() {
+var bj = {cash: ch, upgradeCost: ugC, plusCash: pCh}
+var bj2 = JSON.stringify(bj)
+alert(bj2)
+}
+ </script>
+</body>
+
+<!--SocialMedia-->
+
+ <button class="discord" >Discord</button>
+
+<style>
+.discord {
+  background-color: #6960EC; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0;
+  position: absolute;
+  top:90%;
+  left: 43%;
+ 
+}
+</style>
+
+
+
+</body>
+</html>
